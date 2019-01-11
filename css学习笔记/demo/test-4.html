@@ -1,0 +1,30 @@
+<html>
+  <p>div及其内容span均居中</p>
+  <div class="parent">
+    <div class="child1"><span>我要居中</span></div>
+  </div>
+<html> 
+<style>
+  .parent {
+    border: 5px solid red; 
+    width: 500px;
+    height: 500px;
+    background-color: bisque;
+    position: relative;  /*为了子元素的absolute定位生效*/
+  }
+
+  .child1 {
+    border: 1px solid gray; 
+    width: 200px;
+    height: 100px;
+    line-height:100px; /*内容span上下居中*/
+    text-align:center; /*内容span水平居中*/
+    margin: auto;      /*div上下及水平居中*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+</style> 
+
