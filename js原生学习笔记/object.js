@@ -1,5 +1,8 @@
 
 /* 
+  对象分为两种：普通对象和函数对象
+  函数对象：通过new Function()出来的就是函数对象;Function和Object都是函数对象
+  普通对象：其余都是，包括字面量定义的
   * 1.Object有两种类型的方法： 本身的方法和实例方法
     原因是Object既是是一个对象，也是一个构造函数
   * 2.任何对象都有自己的原型对象，不是只有用构造方法new出来的对象才有
@@ -9,7 +12,10 @@
   * 6.可以理解为构造函数是有Function这个对象new出来的
   * 7.由于Object对象也是构造函数，因此它也是由Function这个对象new出来的（见特别1）
   * 8.由于Function是构造函数，因此他有自己的prototype属性，且是一个对象（见特别2）
-  * 9.每个函数都有prototype属性，指向一个对象。普通函数也有，只是一般没有用
+  * 9.每个函数都有prototype属性，指向一个普通对象。普通函数也有，只是一般没有用
+  * 10.实例的构造函数属性（constructor）指向构造函数
+  * 11.每个对象都有__proto__属性，但只有函数对象才有prototype属性
+  * 12. 
 */
 
   //对象之间的关系可以总结如下：
@@ -19,6 +25,7 @@
   function People(name) {
     this.name = name;
   }
+
   console.log(a.__proto__ == Object.prototype)
   console.log(a.constructor == Object) //特别3
   console.log(People.constructor == Function) //特别3
@@ -30,6 +37,7 @@
   console.log(Object.prototype.__proto__ == null) 
   console.log(Object.__proto__ == Function.prototype)  //特别1
   console.log(Object.prototype == Function.prototype.__proto__) //特别2
+  console.log(Function.__proto__== Function.prototype)
 
 
 

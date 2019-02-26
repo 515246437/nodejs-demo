@@ -192,3 +192,5 @@ arr.every(function (elem, index, arr) {
 var a = ['a', 'b', 'c'];
 a.indexOf('b') // 1
 a.indexOf('y') // -1
+
+
