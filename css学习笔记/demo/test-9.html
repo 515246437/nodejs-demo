@@ -1,0 +1,55 @@
+<html>
+  <p>div及其内容span均居中</p>
+  <!-- <div class="parent">
+    <div class="test">1</div>
+    <div class="test-two">2</div>
+  </div> -->
+  <div class="wrap">
+    <div class="inner">html ： 让 inner 居中</div>
+  </div>
+<html> 
+<style>
+  .parent {
+    border: 5px solid red; 
+    width: 500px;
+    height: 500px;
+    background-color: bisque;
+    position: relative;  /*为了子元素的absolute定位生效*/
+  }
+
+  .child1 {
+    border: 1px solid gray; 
+    width: 100px;
+    height: 100px;
+    /* float: left; */
+    position: absolute;
+    top: 30px;
+    left: 200px;
+    float: left;
+    /* margin: 0 auto; */
+  }
+  .child2 {
+    border: 1px solid gray; 
+    width: 200px;
+    height: 200px;
+    /* float: left; */
+    /* width: 200px; */
+  }
+
+  .test {
+    width:100px;
+    height:30px;
+    background:red;
+    position:relative;
+    left:128px;float:
+    left
+  }
+  .test-two {
+    width:100px;height:30px;background:green;position:relative;left:2px;float:left
+  }
+
+  .wrap {  float: left;/* 自适应内容宽度 */  position: relative;  left: 50%; }
+.inner {  position: relative;  left: -50%; }
+</style> 
+
+

@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>控制div属性</title>
+<style>
+.icoFontlist:hover
+{
+    width: 125px;
+    font-size: 12px;
+    border: 0px solid #ddd;
+    overflow: visible;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color:blue;
+    text-decoration:underline;
+    cursor:pointer; 
+}
+.icoFontlist{
+    width: 125px;
+    font-size: 12px;
+    border: 0px solid #ddd;
+    color:#5f5f5f;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+</style>
+<script>
+var changeStyle = function (elem, attr, value)
+{
+	elem.style[attr] = value
+};
+window.onload = function ()
+{
+	var oBtn = document.getElementsByTagName("input");
+	var oDiv = document.getElementById("div1");
+	var oAtt = ["width","height","background","display","display"];
+	var oVal = ["200px","200px","red","none","block"];
+
+	for (var i = 0; i < oBtn.length; i++)
+	{
+		oBtn[i].index = i;
+		oBtn[i].onclick = function ()
+		{
+			this.index == oBtn.length - 1 && (oDiv.style.cssText = "");
+			changeStyle(oDiv, oAtt[this.index], oVal[this.index])
+		}	
+	}
+};
+</script>
+</head>
+<body>
+  <div class="icoFontlist">这里是全部的信息没有省略号，接下来演示如何处理超长文本显示省略号</div>
+</body>
+</html>
+
+

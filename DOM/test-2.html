@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xxx</title>
+</head>
+<body>
+    <input type="file" id="inputBox">
+  <textarea rows="10" cols="30" id="p1">
+    我是一个文本框。
+    </textarea>
+    <a id="a"></a>
+<script>
+
+var a = document.getElementById("a")
+var inputBox = document.getElementById("inputBox");
+var img = document.getElementById("img");
+inputBox.addEventListener("change",function(){
+  var reader = new FileReader();
+  reader.readAsText(inputBox.files[0]);//发起异步请求
+  reader.onload = function(){
+    //读取完成后，将结果赋值给img的src
+    document.getElementById("p1").innerHTML = this.result
+  }
+})
+
+var blob = new Blob([document.getElementById("p1").innerHTML]);
+var a = document.createElement("a");
+a.href = window.URL.createObjectURL(blob);
+a.download = "a.js";
+a.textContent = "Download";
+document.getElementById("p1").innerHTML
+document.body.appendChild(a);
+</script>
+</body>
+</html>
+
