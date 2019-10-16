@@ -23,10 +23,10 @@
 
   // 案例2
   // ("a" in window)  => true
-  // if (!!("a" in window)) { 
-  //   var a = 1;  // 定义了一个a变量，a =undefined，js没有块级作用域
-  // } 
-  // console.log(a);
+  if (!!("a" in window)) { 
+    var a = 1;  // 定义了一个a变量，a =undefined，js没有块级作用域
+  } 
+  console.log(a);
 
 
   // 案例3

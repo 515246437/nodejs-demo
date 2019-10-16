@@ -16,26 +16,16 @@ app.use((req,res,next) => {
 });
  
 app.get('/workorders', function (req, res) {
+  console.log(req.body)
   // console.log("workorders");
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  // res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader('Content-Type', 'application/json');
   res.send(
     {
-      "workOrders":
-        [
-          { "orderid": 1}
-        ]
+      'workOrders':"ddd"
     })
 });
 
-
-app.get('/products', function (req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.send(
-    {
-      "products":[{"ID":1,}]
-    }
-  )
-});
 
 
 app.post('/images', function (req, res, next) {
@@ -49,7 +39,7 @@ app.post('/images', function (req, res, next) {
     var host = server.address().address
     var port = server.address().port
  
-    console.log("应用实例，访问地址为 http://%s:%s", host, port)
+    console.log("应用实例，访问地址为localhost:" ,port)
  
   })
 
