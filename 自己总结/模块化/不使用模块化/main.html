@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function getFormatDate(date,type){
+      console.log('final')
+      //type === 1 返回 2017-06-15 格式的日期
+      //type === 2 返回 2017年6月15日 格式日期
+      //...
+    }
+    //a-util.js
+    function aGetFormatDate(date){
+      //要求返回2017年6月15日格式
+      return getFormatDate(date,2)
+    }
+    // a.js
+    var dt = new Date()
+    aGetFormatDate(dt)
+  </script>
+</body>
+</html>

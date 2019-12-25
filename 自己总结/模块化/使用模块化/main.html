@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  // 1. 这些代码中的函数必须是全局变量，才能暴露给使用方，全局变量污染，
+  //因为全局变量，可能被其他人覆盖掉
+  //强依赖，顺序不能乱
+  // 2. a.js 知道要引用a-util.js，但a.js不一定知道需要依赖util.js
+
+  <script src="util.js"></script>
+  <script src="a-util.js"></script>
+  <script src="a.js"></script>
+</head>
+<body>
+</body>
+</html>

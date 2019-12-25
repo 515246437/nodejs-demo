@@ -5,16 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <style type="text/css">
-  
-  .one .two {
-    color: red;
-  } 
-    </style>
+    div{
+      width:100px;
+      height:100px;
+      background-image:url("./img/bag.png");
+      background-size: 100px 100px;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      border-radius: 50% 50%;
+    }
+  </style>
 </head>
 <body>
-  <div>
-    <p class="one"><span class="two">1</span></p>
-    <p class="two">2</p>
-  </div>
+  <div id="demo"></div>
+  <script>
+    var oDiv = document.getElementById('demo');
+        var timer = null;
+        
+        
+        oDiv.onclick = function (){ //点击篮球触发运动函数
+            startMove(this);
+        }
+        
+        
+        function startMove (dom){//运动函数
+            clearInterval(dom.timer);//清理定时器
+            var iSpeedX = 6; //横向初速度
+            var iSpeedY = 8; //竖向初速度
+            var g = 3; //重力初速度
+
+            dom.timer = setInterval(function (){ //开启定时器
+                iSpeedY += g; //竖向坐标每次加等于本身
+                var newTop = dom.offsetTop + iSpeedY; //篮球自身纵坐标加上竖向速度值付给newTop
+                var newLeft = dom.offsetLeft + iSpeedX;//篮球自身横坐标加上横向速度值付给newLeft
+                if(newTop >= document.documentElement.clientHeight - dom.clientHeight){ //newTop如果大于或等于浏览器窗口高度减去篮球自身高度
+                    iSpeedY *= -1; //当篮球到达窗口底部的时候纵向速度乘以-1，使篮球反向运动
+                
+                    //加上能量损失，让篮球碰到四壁的时候，能量减小
+                    iSpeedY *= 0.8;  //纵向速度乘以0.8，会越乘越小
+                    iSpeedX *= 0.8;  //横向速度乘以0.8，会越乘越小
+                    newTop = document.documentElement.clientHeight - dom.clientHeight;
+                    //为了防止篮球大于等于底部的时候略过浏览器窗口底边出现滚动条，所以让newTop值直接等于浏览器窗口高度减去自身高度
+                }
+                if(newTop <= 0){ //当newTop值反向走到流浪器窗口顶部的时候，即等于0
+                    iSpeedY *= -1; //则继续以纵向速度乘以-1，继续反向运动
+                                    
+                    //加上能量损失，让篮球碰到四壁的时候，能量减小
+                    iSpeedY *= 0.8;//纵向速度乘以0.8，会越乘越小
+                    iSpeedX *= 0.8;//横向速度乘以0.8，会越乘越小
+                    newTop = 0; //防止略过窗口，直接让newTop值等于0
+                }
+                if(newLeft >= document.documentElement.clientWidth - dom.clientWidth){//newLeft如果大于或等于流浪器窗口宽度减去篮球自身宽度
+                    iSpeedX *= -1;//则继续以横向速度乘以-1，继续反向运动
+                                    
+                    //加上能量损失，让篮球碰到四壁的时候，能量减小
+                    iSpeedY *= 0.8;//纵向速度乘以0.8，会越乘越小
+                    iSpeedX *= 0.8;//横向速度乘以0.8，会越乘越小
+                    newLeft = document.documentElement.clientWidth - dom.clientWidth;
+                    //为了防止篮球大于等于宽度的时候略过浏览器窗口宽度出现横向滚动条，所以让newTop值直接等于浏览器窗口宽度减去自身宽度
+                }
+                if(newLeft <= 0){ //当newLeft值反向走到流浪器窗口最左侧的时候，即等于0
+                    iSpeedX *= -1;//则继续以横向速度乘以-1，继续反向运动
+                                    
+                    //加上能量损失，让篮球碰到四壁的时候，能量减小
+                    iSpeedY *= 0.8;//纵向速度乘以0.8，会越乘越小
+                    iSpeedX *= 0.8;//横向速度乘以0.8，会越乘越小
+                    newLeft = 0;//防止略过窗口，直接让newTop值等于0
+                }
+                if(Math.abs(iSpeedX) < 1 && Math.abs(iSpeedY) < 1){ //当横向速度和纵向速度小于1的时候，横向纵向速度等于0
+                    iSpeedX = 0;
+                    iSpeedY = 0;
+                }
+                if(iSpeedX == 0 && iSpeedY == 0 && newTop == document.documentElement.clientHeight - dom.clientHeight){
+                    //当横向速度和纵向速度等于0并且newTop值等于窗口高度减去自身高度的时候
+                    clearInterval(dom.timer);//清理定时器，停止运动
+                }else{//停了运动就跟着停止了
+                    dom.style.top = newTop + 'px'; 
+                    dom.style.left = newLeft + 'px';    
+                }
+            },30);//每30毫秒运行一次
+        }
+  </script>
 </body>
 </html>
