@@ -29,6 +29,7 @@
     // 原型的继承方式。
     // Cat.prototype.constructor === Cat
     Cat.prototype = new Animal();   // 父类的构造函数：执行第一次。
+    console.log(new Animal())
     Cat.prototype.constructor = Cat;  // 因为上面的代码把Cat的prototype指向了Animal
 
     var c = new Cat(19, 'sss');  //希望：cat继承animal的属性和方法

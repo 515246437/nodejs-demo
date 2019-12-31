@@ -39,12 +39,14 @@
   //初始化对象
   function Roll ()
   {
+    console.log(arguments)
     this.initialize.apply(this, arguments)	
   }
   Roll.prototype =
   {
     initialize: function (obj)
     {
+      console.log(obj)
       var _this = this;
       this.obj = $(obj);
       this.oUp = $$$("up", this.obj)[0];
@@ -93,7 +95,7 @@
 
   window.onload = function ()
   {
-    new Roll("box");
+    new Roll("box1");
   };
 </script>
 </head>

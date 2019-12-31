@@ -7,19 +7,19 @@
 </style>
 </head>
 <body>
-  <select id="mySelect">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-  </select>
+  <div id="div1"></div>
 </body>
 
 <script type="text/javascript">
-  function inputHandler(e) {
-  console.log(e.target.value)
-}
-
-var mySelect = document.querySelector('#mySelect');
-mySelect.addEventListener('input', inputHandler);
+   function A() {
+     this.a = 1
+     console.log(this)
+     var _this = this;
+     this.run = function() {
+       console.log(_this==this)
+     }
+   }
+   console.log(new A().run())
+  
 </script>
 </html>
