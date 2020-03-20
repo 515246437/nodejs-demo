@@ -1,25 +1,66 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>移动效果（按轨迹移动）</title>
-<style type="text/css">
-</style>
-</head>
-<body>
-  <div id="div1"></div>
-</body>
-
-<script type="text/javascript">
-   function A() {
-     this.a = 1
-     console.log(this)
-     var _this = this;
-     this.run = function() {
-       console.log(_this==this)
-     }
-   }
-   console.log(new A().run())
-  
-</script>
-</html>
+<!DOCTYPE HTML>  
+<html>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1" />  
+<script src="jquery-1.7.1.min.js"></script>  
+<title>home</title>  
+<style>  
+  body {  
+      margin: 0;  
+      padding: 0;  
+      border: 0;  
+      background: #fd3b36;  
+      font-family: Microsoft Yahei, Arial, sans-serif;  
+      overflow-x: hidden;  
+  }  
+  #mainpage {  
+      background: url(home.png) no-repeat;  
+      background-size: 100%;  
+      width: 6.4rem;  
+      height: 11.36rem;  
+  }  
+  #content {  
+      width: 5.5rem;  
+      font-size: 0.26rem;  
+      margin: 0 auto;  
+      padding-top: 4.4rem;  
+      color: #fff;  
+      line-height: 0.38rem;  
+  }  
+  #btn {  
+      text-align: center;  
+  }  
+  #btn img {  
+      width: 3.66rem;  
+      height: 0.96rem;  
+      margin-top: 0.64rem;  
+  }  
+</style>  
+<title>活动首页</title>  
+<body>  
+<div id="mainpage">  
+    <div id="content">在这个阖家团圆、祝福新年的节日，祝大家新年快乐，万事大吉，平平安安，羊年行大运，发大财。</div>  
+    <div id="btn">  
+        <img src="btn.png">  
+    </div>  
+</div>  
+<script>  
+/*将根元素字号大小设置为：屏宽与图宽的比；  
+由于chrom对10px以下的字不再缩小，而且手机屏  
+都比较小，所以作为默认字体大小又乘了100，这样  
+计算其他元素大小时，量出图上大小再除以100就可以了*/  
+function defaultfont() {  
+    var sw = $(window).width();  
+    var pw = 640;  
+    var f = 100*sw/pw;  
+    $('html').css('font-size', f+'px');  
+}  
+/*之所以要延时100ms再调用这个函数是因为  
+如果不这样屏幕宽度加载会有误差*/  
+defaultfont();  
+setTimeout(function(){  
+    defaultfont();  
+}, 100);  
+</script>  
+</body>  
+</html>  

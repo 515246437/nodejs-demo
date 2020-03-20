@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="main">
+    <div class="header"></div>
+    <div class="content">
+      <p>111</p>
+      <p>111</p>
+      <p>111</p>
+      <p>111</p>
+      <p>111</p>
+    </div>
+    <div class="bottom"></div>
+  </div>
+</body>
+<style>
+  .main {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .header {
+    top: 0px;
+    position: absolute;
+    background: grey;
+    height: 60px;
+    width: 100%;
+  }
+  .content {
+    margin-top: 60px;
+    background: white;
+    height:calc(100vh - 120px);
+    width: 100%;
+    overflow: auto;
+  }
+  .bottom {
+    bottom: 0px;
+    position: fixed;
+    background: grey;
+    height: 60px;
+    width: 100%;
+  }
+  
+
+</style> 
+</html>
