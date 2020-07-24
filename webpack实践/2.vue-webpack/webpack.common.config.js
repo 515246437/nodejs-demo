@@ -38,7 +38,7 @@ const commonConfig  = {
     plugins: [
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            filename: 'index.html',
+            filename: 'index111.html',
             template: path.join(__dirname, 'src/index.html')
         }),
         new CleanWebpackPlugin(),

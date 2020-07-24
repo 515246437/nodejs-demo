@@ -5,6 +5,32 @@
 */
 
 /* 
+  (4): 
+  说明: 对比下面俩段代码
+*/
+//普通的最简单回调例子
+function add(input) {
+  console.log(input)
+}
+function execute(someFunction) {
+  someFunction("world");
+}
+execute(add);
+
+//使用了promise的回调例子，.then和execute是一样的，都是函数的调用。
+//参数问题： resolve的值会作为add的参数，直接传给add
+function add(input) {
+  console.log(input)
+}
+var p = new Promise(function (resolve, reject) {
+  resolve({'one': 'ONE',
+          'two': 'TWO'});
+});
+p.then(add)
+
+
+
+/* 
   (1): 
   说明: Promise简单例子
   resolve只能带一个参数;若想传递多个参数，可以包装成一个对象
@@ -96,31 +122,6 @@ func_arr.reduce(function(cur, next) {
   }, Promise.resolve()).then(function() {
     console.log('job finished');
 });
-
-/* 
-  (4): 
-  说明: 对比下面俩段代码
-*/
-//普通的最简单回调例子
-function add(input) {
-  console.log(input)
-}
-function execute(someFunction) {
-  someFunction("world");
-}
-execute(add);
-
-//使用了promise的回调例子，.then和execute是一样的，都是函数的调用。
-//参数问题： resolve的值会作为add的参数，直接传给add
-function add(input) {
-  console.log(input)
-}
-var p = new Promise(function (resolve, reject) {
-  resolve({'one': 'ONE',
-          'two': 'TWO'});
-});
-p.then(add)
-
 
 /* 
   (5): 
